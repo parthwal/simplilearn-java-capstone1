@@ -2,6 +2,7 @@ package com.main;
 
 import java.io.File;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class LockedMe {
 
@@ -41,10 +42,11 @@ public class LockedMe {
 
             switch (input) {
                 case "1":
-                    System.out.println("TODO");
+//                    displayFiles();
+                	System.out.println("TODO");
                     break;
                 case "2":
-                    System.out.println("TODO");
+                    businessOperations();
                     break;
                 case "3":
                     System.out.println("Thank you for using LockedMe.com. Goodbye!");
@@ -54,4 +56,37 @@ public class LockedMe {
             }
         }
     }
+
+    private static void businessOperations() {
+        while (true) {
+            System.out.println("\nBusiness Operations:");
+            System.out.println("1. Add a file");
+            System.out.println("2. Delete a file");
+            System.out.println("3. Search for a file");
+            System.out.println("4. Return to Main Menu");
+            System.out.print("Enter your choice (1-4): ");
+
+            String input = sc.nextLine().trim();
+
+            switch (input) {
+                case "1":
+//                    addFile();
+                	System.out.println("TODO");
+                    break;
+                case "2":
+//                    deleteFile();
+                	System.out.println("TODO");
+                    break;
+                case "3":
+//                    searchFile();
+                	System.out.println("TODO");
+                    break;
+                case "4":
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        }
+    }
+
 }
