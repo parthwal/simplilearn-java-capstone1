@@ -1,18 +1,30 @@
 package com.main;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class LockedMe {
 
     static final String AppName = "LockedMeFiles";
+    static final String ROOT_DIR = "Root";
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+    	initRootDir();
         printWelcomeScreen();
         mainMenuLoop();
         sc.close();
     }
 
+    private static void initRootDir() {
+    	File dir=new File(ROOT_DIR);
+    	if(!dir.exists()) {
+    		if(dir.mkdir()) {
+    			System.out.println("No root directory detected, created new ROOT_DIR");
+    		};
+    	}
+    }
+    
     private static void printWelcomeScreen() {
         System.out.println("Welcome to LockedMe.com");
     }
