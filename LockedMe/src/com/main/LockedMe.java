@@ -42,8 +42,7 @@ public class LockedMe {
 
             switch (input) {
                 case "1":
-//                    displayFiles();
-                	System.out.println("TODO");
+                    displayFiles();
                     break;
                 case "2":
                     businessOperations();
@@ -56,7 +55,20 @@ public class LockedMe {
             }
         }
     }
+    private static void displayFiles() {
+        File dir = new File(ROOT_DIR);
+        String[] fileList = dir.list();
 
+        if (fileList == null || fileList.length == 0) {
+            System.out.println("The directory is currently empty.");
+        } else {
+            Arrays.sort(fileList);
+            System.out.println("Files in the directory (ascending order):");
+            for (String file : fileList) {
+                System.out.println("- " + file);
+            }
+        }
+    }
     private static void businessOperations() {
         while (true) {
             System.out.println("\nBusiness Operations:");
