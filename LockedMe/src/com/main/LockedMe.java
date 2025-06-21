@@ -51,10 +51,10 @@ public class LockedMe {
                     addFile();
                     break;
                 case "3":
-//                    deleteFile();
+                    deleteFile();
                     break;
                 case "4":
-//                    searchFile();
+                    searchFile();
                     break;
                 case "5":
                     System.out.println("Thank you for using LockedMe.com. Goodbye!");
@@ -93,6 +93,45 @@ public class LockedMe {
             }
         } catch (IOException e) {
             System.out.println("Error creating file: " + e.getMessage());
+        }
+    }
+
+    private static void deleteFile() {
+        System.out.print("Enter the file name to delete: ");
+        String fileName = sc.nextLine().trim();
+        File file = new File(ROOT_DIR + "\\" + fileName);
+
+        if (file.exists()) {
+            if (file.delete()) {
+                System.out.println("File deleted: " + fileName);
+            } else {
+                System.out.println("Failed to delete file.");
+            }
+        } else {
+            System.out.println("File not found.");
+        }
+    }
+
+    private static void searchFile() {
+        System.out.print("Enter the file name to search: ");
+        String fileName = sc.nextLine().trim();
+        File folder = new File(ROOT_DIR);
+        String[] fileList = folder.list();
+
+        boolean found = false;
+        if (fileList != null) {
+            for (String file : fileList) {
+                if (file.equals(fileName)) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        if (found) {
+            System.out.println("File found: " + fileName);
+        } else {
+            System.out.println("File not found.");
         }
     }
 }
