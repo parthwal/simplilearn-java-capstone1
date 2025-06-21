@@ -48,7 +48,7 @@ public class LockedMe {
                     displayFiles();
                     break;
                 case "2":
-//                    addFile();
+                    addFile();
                     break;
                 case "3":
 //                    deleteFile();
@@ -80,4 +80,19 @@ public class LockedMe {
         }
     }
 
+    private static void addFile() {
+        System.out.print("Enter the file name to add: ");
+        String fileName = sc.nextLine().trim();
+        File file = new File(ROOT_DIR + "\\" + fileName);
+
+        try {
+            if (file.createNewFile()) {
+                System.out.println("File created: " + fileName);
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("Error creating file: " + e.getMessage());
+        }
+    }
 }
